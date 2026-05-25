@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extentreports>
+  <configuration>
+    <theme>standard</theme>
+    <encoding>UTF-8</encoding>
+    <protocol>https</protocol>
+    
+    <reportName>Automation Test Report</reportName>
+    <documentTitle>Execution Results</documentTitle>
+    <timeStampFormat>MMM dd, yyyy HH:mm:ss a</timeStampFormat>
+
+    <!-- Hides the step charts from timeline processing -->
+    <enableTimeline>false</enableTimeline>
+
+    <!-- BULLETPROOF CSS INJECTION TO CLEAN THE UI -->
+    <css><![CDATA[
+      /* 1. Hide the entire Steps chart container panel */
+      .dashboard-view .row > .col-md-3:nth-child(3) { 
+        display: none !important; 
+      }
+      /* Adjust chart column widths to split the remaining space beautifully */
+      .dashboard-view .row > .col-md-3 { 
+        width: 50% !important; 
+        max-width: 50% !important; 
+        flex: 0 0 50% !important;
+      }
+      
+      /* 2. Hide the unwanted status pills from the top navigation filter */
+      .status-toggle .dropdown-menu .status.fatal,
+      .status-toggle .dropdown-menu .status.error,
+      .status-toggle .dropdown-menu .status.warning,
+      .status-toggle .dropdown-menu .status.info {
+        display: none !important;
+      }
+    ]]></css>
+  </configuration>
+</extentreports>

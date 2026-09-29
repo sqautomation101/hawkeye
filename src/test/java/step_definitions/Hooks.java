@@ -30,6 +30,7 @@ public class Hooks {
     }
     */
 
+    /*
     @After
     public void tearDown(Scenario scenario) {
         // take screenshot if scenario fails
@@ -46,4 +47,5 @@ public class Hooks {
         System.out.println("Finished: " + scenario.getName());
         scenarioContext.teardown();
     }
+    */
 }

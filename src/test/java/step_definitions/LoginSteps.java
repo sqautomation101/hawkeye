@@ -49,11 +49,12 @@ public class LoginSteps
     }
 
     @Then("the error {string} should appear at {}")
-    public void theErrorMessageShouldAppearAtPosition(String expectedMessage, int position) {
-        String actualMessage = loginPage.getErrorAtPosition(position);
+    public void theErrorMessageShouldAppearAtPosition(String expectedMessage, String fieldName) {
+        String actualMessage = loginPage.getErrorMessage(fieldName);
         assertEquals(actualMessage, expectedMessage, "Incorrect error message");
     }
 
+    //this is not used since CSV is not recommended
     @When("the user logs in with credentials from {string}")
     public void theUserLogsInWithCredentialsFrom(String csvFilename) throws Exception {
 
@@ -90,6 +91,28 @@ public class LoginSteps
         reader.close();
 
 
+    }
+
+    @Given("the user is logged into Hawkeye as an {string}")
+    public void theUserIsLoggedIntoHawkeyeAsRole(String role) {
+        iAmOnTheLoginPage();
+
+        String username = "";
+        String password = "";
+
+        switch(role.toLowerCase()) {
+            case "admin":
+                username = "hlsy";
+                password = "Sophie@Test@25!";
+                break;
+            case "editor":
+                username = "daespiritu";
+                password = "Tulip080723!!!";
+                break;
+            default:
+                throw new IllegalArgumentException("Unknown user role: " + role);
+        }
+        iEnterUsernameAndPassword(username,password);
     }
 
 }

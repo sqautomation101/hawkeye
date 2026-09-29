@@ -20,18 +20,18 @@ Feature: Login
     #@login-success
     #Scenario: User successfully logs in to the Hawkeye
     # When the user logs in with credentials from "validCredentials.csv"
-    #  Then the user should be redirected to the Hawkeye Homepage
+    # Then the user should be redirected to the Hawkeye Homepage
 
     @TC03-Login_Errors
     Scenario Outline: User sees correct error message with invalid credentials
       When the user enters a username "<username>" and password "<password>"
-      Then the error "<errorMessage>" should appear at <position>
+      Then the error "<errorMessage>" should appear at <fieldName>
 
       Examples:
-        | username      | password      | position | errorMessage            |
-        |               |               | 0        | This field is required. |
-        |               |               | 1        | This field is required. |
-        | hlsy          |               | 0        | This field is required. |
-        |               | Test@123      | 0        | This field is required! |
-        | hlsy          | wrongpassword | 0        | Invalid ADID            |
-        | wrongusername | Test@123      | 0        | Invalid ADID            |
+        | username | password | fieldName | errorMessage            |
+        |          |          | username  | This field is required. |
+        |          |          | password  | This field is required. |
+        | hlsy     |          | password  | This field is required. |
+        |          | Test@123 | username  | This field is required. |
+        | hlsy          | wrongpassword | password  | Invalid ADID            |
+        | wrongusername | Test@123 | password  | Invalid ADID            |

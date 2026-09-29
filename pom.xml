@@ -19,7 +19,7 @@
         <dependency>
             <groupId>com.microsoft.playwright</groupId>
             <artifactId>playwright</artifactId>
-            <version>1.45.0</version>
+            <version>1.49.0</version>
         </dependency>
 
         <!-- Core testing framework -->
@@ -83,6 +83,15 @@
             <version>7.12.0</version>
             <scope>compile</scope>
         </dependency>
+
+        <!-- Official PostgreSQL Driver for Database Connections -->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.7.11</version>
+            <scope>test</scope>
+        </dependency>
+
 
     </dependencies>
 

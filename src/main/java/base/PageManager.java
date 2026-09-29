@@ -7,6 +7,7 @@ public class PageManager {
     private Page page;
     private LoginPage loginPage;
     private Homepage homepage;
+    private TargetingRequestPage targetingRequestPage;
 
     //Receive the page created and passed by ScenarioContext
     public PageManager (Page page){
@@ -27,5 +28,12 @@ public class PageManager {
             homepage = new Homepage(page);
         }
         return homepage;
+    }
+
+    public TargetingRequestPage getTargetingRequestPage() {
+        if (targetingRequestPage == null) {
+            targetingRequestPage = new TargetingRequestPage(page);
+        }
+        return targetingRequestPage;
     }
 }
